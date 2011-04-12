@@ -243,7 +243,7 @@ struct orion5x_cpu_registers {
  * DDR SDRAM Controller Address Decode Registers
  * Source: 88F5182 User Manual, Appendix A, section A.5.1
  */
-struct orion5x_ddr_addr_decode_registers {
+struct orion5x_addr_decode_registers {
 	u32 base;
 	u32 size;
 };
