@@ -380,6 +380,22 @@ static void port_uc_addr_set(struct mvgbe_registers *regs, u8 * p_addr)
 }
 
 /*
+ * port_uc_addr_get - This function gets the port unicast address.
+ */
+static void port_uc_addr_get(struct mvgbe_registers *regs, u8 * p_addr)
+{
+	u32 mac_l = MVGBE_REG_RD(regs->macal);
+	u32 mac_h = MVGBE_REG_RD(regs->macah);
+
+	p_addr[0] = (mac_h >> 24);
+	p_addr[1] = (mac_h >> 16);
+	p_addr[2] = (mac_h >> 8);
+	p_addr[3] = (mac_h >> 0);
+	p_addr[4] = (mac_l >> 8);
+	p_addr[5] = (mac_l >> 0);
+}
+
+/*
  * mvgbe_init_rx_desc_ring - Curve a Rx chain desc list and buffer in memory.
  */
 static void mvgbe_init_rx_desc_ring(struct mvgbe_device *dmvgbe)
@@ -719,6 +735,9 @@ error1:
 		}
 
 		while (!eth_getenv_enetaddr(s, dev->enetaddr)) {
+#if defined(CONFIG_PRESERVE_LOCAL_MAC)
+			port_uc_addr_get(dmvgbe->regs, dmvgbe->dev.enetaddr);
+#else
 			/* Generate Private MAC addr if not set */
 			dev->enetaddr[0] = 0x02;
 			dev->enetaddr[1] = 0x50;
@@ -733,6 +752,7 @@ error1:
 			dev->enetaddr[3] = get_random_hex();
 			dev->enetaddr[4] = get_random_hex();
 			dev->enetaddr[5] = get_random_hex();
+#endif
 #endif
 			eth_setenv_enetaddr(s, dev->enetaddr);
 		}
