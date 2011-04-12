@@ -1,0 +1,84 @@
+Booting
+-------
+
+The TS-7800 boots initially from a proprietary bootloader on the FPGA
+called TS-BOOTROM. TS-BOOTROM loads a small image from the MBR of the
+onboard NAND or SD card into RAM, and executes it. The default MBR is
+intended to boot a Linux kernel.
+
+The TS-7800 port of U-Boot takes the place of the Linux kernel in this
+configuration, and is therefore loaded and executed by the MBR. The
+MBR also creates an ATAG structure intended for Linux, but U-Boot
+ignores it.
+
+NAND layout
+-----------
+
+NAND support is not enabled by default because U-Boot will overwrite
+part of it with its environment. To enable NAND support, enable
+CONFIG_USE_NAND in include/configs/ts7800.h.
+
+The default NAND partition layout used by Technologic and Linux is:
+
+    128k(mbr),4m(linux),4m(initrd),-(rootfs)
+
+For U-Boot, we split the linux partition into a partition for the
+U-Boot code and a partition for the U-Boot environment. The initrd
+partition is not used, and is renamed to "linux". The new layout is:
+
+    128k(mbr),3m(uboot),1m(env),4m(linux),-(rootfs)
+
+When NAND support is enabled, this string is available in the U-Boot
+default environment as the "mtdparts" variable. You may wish to use
+this layout for Linux as well by adding it to the Linux command line.
+For example:
+
+    setenv bootargs console=ttyS0,115200n8 ${mtdparts}
+
+Installing U-Boot
+-----------------
+
+To install U-Boot to the onboard flash, write u-boot.bin to the kernel
+partition on the flash. From Linux this might be done as follows:
+
+  flash_eraseall /dev/mtd1
+  nandwrite --pad /dev/mtd1 u-boot.bin
+
+When running from onboard flash, you may wish to enable NAND support
+as described in the previous section. The environment is not preserved
+unless you enable NAND support.
+
+To install U-Boot to an SD card, write u-boot.bin to the kernel
+partition on the card.
+
+Booting Technologic Kernels
+---------------------------
+
+Technologic's kernels use a different machine type ID than upstream
+kernels. U-Boot uses the upstream ID, so Technologic kernels will
+not boot from U-Boot without the following workaround:
+
+  setenv machid 0x20e
+
+The following commands will convert a Technologic kernel image
+into U-Boot format:
+
+  mkimage -A arm -O linux -T kernel -C none -a 0x8000 \
+    -d kernel-image-latest.dd uImage
+
+  mkimage -A arm -O linux -T ramdisk -C none -a 0x1000000 \
+    -d initrd-busybox-rootfs-latest.dd initrd
+
+Then pass both images to the bootm command to boot. Note that with
+U-Boot installed there is only one partition available for the kernel
+and initrd. To use both changing the NAND partitioning may be
+required. To do so you can use the mtdparts command in U-Boot and pass
+${mtdparts} to linux.
+
+TS-7800 Wiki
+------------
+
+A useful resource about the TS-7800 is the TS-7800 wiki [1],
+maintained by Alexander Clouter.
+
+[1] http://www.digriz.org.uk/ts78xx
