@@ -33,10 +33,11 @@
 #define CONFIG_BOOTDELAY	3
 
 /*
- * Flash Driver
+ * Flash Configuration
  */
 
-#define CONFIG_SYS_NO_FLASH
+#define CONFIG_SYS_NO_FLASH		/* TS-7800 has only NAND flash */
+#define CONFIG_USE_NAND		0	/* Disable NAND by default */
 
 /*
  * Commands Configuration
@@ -45,6 +46,11 @@
 #include <config_cmd_default.h>
 #define CONFIG_CMD_PING
 #define CONFIG_CMD_MII
+
+#if CONFIG_USE_NAND
+#define CONFIG_CMD_NAND
+#define CONFIG_CMD_MTDPARTS
+#endif
 
 /*
  * Serial Port Configuration
@@ -57,8 +63,20 @@
  * Environment Configuration
  */
 
-#define CONFIG_ENV_IS_NOWHERE	1
+#if CONFIG_USE_NAND
+
+#define CONFIG_ENV_IS_IN_NAND
+
+#define CONFIG_ENV_OFFSET	0x00320000 /* 128k(mbr) + 3m(kernel) */
+#define CONFIG_ENV_SIZE		0x00020000 /* 128k */
+#define CONFIG_ENV_RANGE	0x00100000 /* 1m(env) */
+
+#else
+
+#define CONFIG_ENV_IS_NOWHERE
 #define CONFIG_ENV_SIZE		0x2000
+
+#endif
 
 /*
  * Limits
@@ -111,6 +129,29 @@
 /* Memtest skips the first 4k (vectors) and the last 2MB (U-Boot) */
 #define CONFIG_SYS_MEMTEST_START	0x00001000
 #define CONFIG_SYS_MEMTEST_END		0x07e00000
+
+#define ORION5X_ADR_PCI_MEM	0xe8000000 /* Match Linux (FPGA) */
+#define ORION5X_SZ_PCI_MEM	0x08000000
+
+/*
+ * Flash Driver
+ */
+
+#ifdef CONFIG_CMD_NAND
+
+#define TS_NAND_CTRL	0xe8000800
+#define TS_NAND_DATA	0xe8000804
+
+#define CONFIG_NAND_TS7800
+#define CONFIG_SYS_NAND_BASE		TS_NAND_DATA
+#define CONFIG_SYS_MAX_NAND_DEVICE	1
+
+#define CONFIG_MTD_DEVICE
+#define MTDIDS_DEFAULT		"nand0=gen_nand"
+#define MTDPARTS_DEFAULT \
+	"mtdparts=gen_nand:128k(mbr),3m(uboot),1m(env),4m(linux),-(rootfs)"
+
+#endif
 
 /*
  * UART Driver
