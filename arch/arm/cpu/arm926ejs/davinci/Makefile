@@ -37,7 +37,9 @@ COBJS-$(CONFIG_DRIVER_TI_EMAC)	+= lxt972.o dp83848.o et1011c.o
 SOBJS	= reset.o
 
 ifndef CONFIG_SKIP_CPU_INIT_CRIT
+ifndef CONFIG_SKIP_LOWLEVEL_INIT
 SOBJS	+= lowlevel_init.o
+endif
 endif
 
 SRCS	:= $(START:.o=.S) $(SOBJS:.o=.S) $(COBJS-y:.o=.c)

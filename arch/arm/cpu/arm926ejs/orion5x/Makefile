@@ -34,7 +34,9 @@ COBJS-y	+= dram.o
 COBJS-y	+= timer.o
 
 ifndef CONFIG_SKIP_CPU_INIT_CRIT
+ifndef CONFIG_SKIP_LOWLEVEL_INIT
 SOBJS	:= lowlevel_init.o
+endif
 endif
 
 SRCS	:= $(SOBJS:.o=.S) $(COBJS-y:.o=.c)
