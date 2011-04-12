@@ -344,6 +344,7 @@ LIST_ARM9="			\
 	edb9315			\
 	edb9315a		\
 	edminiv2		\
+	ts7800			\
 	guruplug		\
 	imx27lite		\
 	jadecpu			\
