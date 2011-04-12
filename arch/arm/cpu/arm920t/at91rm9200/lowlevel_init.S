@@ -30,7 +30,7 @@
 #include <config.h>
 #include <version.h>
 
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 /*
  * some parameters for the board
  *
@@ -166,4 +166,4 @@ SMRDATA1:
 	.word CONFIG_SYS_SDRAM
 	.word CONFIG_SYS_SDRAM_VAL
 	/* SMRDATA1 is 176 bytes long */
-#endif /* CONFIG_SKIP_LOWLEVEL_INIT */
+#endif /* CONFIG_SKIP_CPU_INIT_CRIT */

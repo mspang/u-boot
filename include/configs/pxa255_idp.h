@@ -41,7 +41,7 @@
  * If we are developing, we might want to start U-Boot from RAM
  * so we MUST NOT initialize critical regs like mem-timing ...
  */
-#undef CONFIG_SKIP_LOWLEVEL_INIT			/* define for developing */
+#undef CONFIG_SKIP_CPU_INIT_CRIT /* define for developing */
 #define	CONFIG_SYS_TEXT_BASE	0x0
 
 /*

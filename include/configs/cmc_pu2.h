@@ -43,7 +43,7 @@
 #define CONFIG_SETUP_MEMORY_TAGS 1
 #define CONFIG_INITRD_TAG	1
 
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 #define CONFIG_SYS_USE_MAIN_OSCILLATOR		1
 /* flash */
 #define CONFIG_SYS_EBI_CFGR_VAL	0x00000000
@@ -68,7 +68,7 @@
 #define CONFIG_SYS_SDRC_MR_VAL2	0x00000003 /* Load Mode Register */
 #define CONFIG_SYS_SDRC_MR_VAL3	0x00000000 /* Normal Mode */
 #define CONFIG_SYS_SDRC_TR_VAL	0x000002E0 /* Write refresh rate */
-#endif	/* CONFIG_SKIP_LOWLEVEL_INIT */
+#endif	/* CONFIG_SKIP_CPU_INIT_CRIT */
 
 /*
  * Size of malloc() pool

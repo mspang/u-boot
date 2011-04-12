@@ -62,7 +62,7 @@
 #define CONFIG_SETUP_MEMORY_TAGS 1
 #define CONFIG_INITRD_TAG	1
 
-#define CONFIG_SKIP_LOWLEVEL_INIT
+#define CONFIG_SKIP_CPU_INIT_CRIT
 
 /*
  * Hardware drivers

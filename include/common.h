@@ -737,7 +737,7 @@ int cpu_release(int nr, int argc, char * const argv[]);
 
 #ifdef CONFIG_INIT_CRITICAL
 #error CONFIG_INIT_CRITICAL is deprecated!
-#error Read section CONFIG_SKIP_LOWLEVEL_INIT in README.
+#error Read section CONFIG_SKIP_CPU_INIT_CRIT in README.
 #endif
 
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof((x)[0]))

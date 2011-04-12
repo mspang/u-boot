@@ -38,7 +38,7 @@
 #define CONFIG_ARMADA100		1	/* SOC Family Name */
 #define CONFIG_ARMADA168		1	/* SOC Used on this Board */
 #define CONFIG_MACH_ASPENITE			/* Machine type */
-#define CONFIG_SKIP_LOWLEVEL_INIT	/* disable board lowlevel_init */
+#define CONFIG_SKIP_CPU_INIT_CRIT	/* disable board lowlevel_init */
 
 /*
  * There is no internal RAM in ARMADA100, using DRAM

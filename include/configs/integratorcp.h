@@ -206,12 +206,12 @@ SIB at Block62 End Block62 address 0x24f80000
 /*
  * The ARM boot monitor initializes the board.
  * However, the default U-Boot code also performs the initialization.
- * If desired, this can be prevented by defining SKIP_LOWLEVEL_INIT
+ * If desired, this can be prevented by defining SKIP_CPU_INIT_CRIT
  * - see documentation supplied with board for details of how to choose the
  * image to run at reset/power up
  * e.g. whether the ARM Boot Monitor runs before U-Boot
 
-#define CONFIG_SKIP_LOWLEVEL_INIT
+#define CONFIG_SKIP_CPU_INIT_CRIT
 
  */
 
@@ -235,7 +235,7 @@ SIB at Block62 End Block62 address 0x24f80000
 #include "armcoremodule.h"
 
 /*
- * If CONFIG_SKIP_LOWLEVEL_INIT is not defined &
+ * If CONFIG_SKIP_CPU_INIT_CRIT is not defined &
  * the core module has a CM_INIT register
  * then the U-Boot initialisation code will
  * e.g. ARM Boot Monitor or pre-loader is repeated once

@@ -139,7 +139,7 @@ next:
 #endif /* NAND Boot */
 #endif
 	/* the mask ROM code should have PLL and others stable */
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 	bl	cpu_init_crit
 #endif
 

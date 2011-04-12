@@ -40,7 +40,7 @@
  *                            initialisation was done by some preloader
  */
 #ifdef CONFIG_RAMBOOT
-#define CONFIG_SKIP_LOWLEVEL_INIT
+#define CONFIG_SKIP_CPU_INIT_CRIT
 #define CONFIG_SYS_TEXT_BASE 0x20100000
 #else
 #define CONFIG_SYS_TEXT_BASE 0x10000000
@@ -87,7 +87,7 @@
 /*
  * LowLevel Init
  */
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 #define CONFIG_SYS_USE_MAIN_OSCILLATOR
 /* flash */
 #define CONFIG_SYS_EBI_CFGR_VAL	0x00000000
@@ -113,7 +113,7 @@
 #define CONFIG_SYS_SDRC_MR_VAL2	0x00000003 /* Load Mode Register */
 #define CONFIG_SYS_SDRC_MR_VAL3	0x00000000 /* Normal Mode */
 #define CONFIG_SYS_SDRC_TR_VAL	0x000002E0 /* Write refresh rate */
-#endif	/* CONFIG_SKIP_LOWLEVEL_INIT */
+#endif	/* CONFIG_SKIP_CPU_INIT_CRIT */
 
 /*
  * Hardware drivers

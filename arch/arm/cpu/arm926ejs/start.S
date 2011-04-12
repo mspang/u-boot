@@ -171,7 +171,7 @@ reset:
 	 * we do sys-critical inits only at reboot,
 	 * not when booting from ram!
 	 */
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 	bl	cpu_init_crit
 #endif
 
@@ -315,7 +315,7 @@ _dynsym_start_ofs:
  *
  *************************************************************************
  */
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 cpu_init_crit:
 	/*
 	 * flush v4 I/D caches
@@ -341,7 +341,7 @@ cpu_init_crit:
 	bl	lowlevel_init	/* go setup pll,mux,memory */
 	mov	lr, ip		/* restore link */
 	mov	pc, lr		/* back to my caller */
-#endif /* CONFIG_SKIP_LOWLEVEL_INIT */
+#endif /* CONFIG_SKIP_CPU_INIT_CRIT */
 
 #ifndef CONFIG_PRELOADER
 /*

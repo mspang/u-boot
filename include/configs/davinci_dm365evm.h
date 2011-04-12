@@ -23,7 +23,7 @@
 /* Spectrum Digital TMS320DM365 EVM board */
 #define DAVINCI_DM365EVM
 
-#define CONFIG_SKIP_LOWLEVEL_INIT	/* U-Boot is a 3rd stage loader */
+#define CONFIG_SKIP_CPU_INIT_CRIT	/* U-Boot is a 3rd stage loader */
 #define CONFIG_SYS_NO_FLASH		/* that is, no *NOR* flash */
 #define CONFIG_SYS_CONSOLE_INFO_QUIET
 

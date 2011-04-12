@@ -32,7 +32,7 @@
  *
  * Also swap the flash1 and flash2 addresses during debug.
  *
- * #define CONFIG_SKIP_LOWLEVEL_INIT
+ * #define CONFIG_SKIP_CPU_INIT_CRIT
  */
 
 /*

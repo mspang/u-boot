@@ -42,7 +42,7 @@
 #define CONFIG_INITRD_TAG	1
 
 #ifndef CONFIG_SYS_USE_BOOT_NORFLASH
-#define CONFIG_SKIP_LOWLEVEL_INIT
+#define CONFIG_SKIP_CPU_INIT_CRIT
 #endif
 
 /*
@@ -144,7 +144,7 @@
 		"cp.b ${load_addr} ${monitor_base} ${filesize};" \
 		"protect on ${monitor_base} +${filesize}\0"
 
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 #define MASTER_PLL_MUL		171
 #define MASTER_PLL_DIV		14
 #define MASTER_PLL_OUT		3

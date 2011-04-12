@@ -1071,7 +1071,7 @@ mx31pdk_nand_config	: unconfig
 	@if [ -n "$(findstring _nand_,$@)" ]; then					\
 		echo "#define CONFIG_NAND_U_BOOT" >> $(obj)include/config.h;		\
 	else										\
-		echo "#define CONFIG_SKIP_LOWLEVEL_INIT" >> $(obj)include/config.h;	\
+		echo "#define CONFIG_SKIP_CPU_INIT_CRIT" >> $(obj)include/config.h;	\
 	fi
 	@$(MKCONFIG) -n $@ -a mx31pdk arm arm1136 mx31pdk freescale mx31
 

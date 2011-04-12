@@ -37,7 +37,7 @@
 #define CONFIG_KIRKWOOD		1	/* SOC Family Name */
 #define CONFIG_KW88F6281	1	/* SOC Name */
 #define CONFIG_MACH_GURUPLUG	/* Machine type */
-#define CONFIG_SKIP_LOWLEVEL_INIT	/* disable board lowlevel_init */
+#define CONFIG_SKIP_CPU_INIT_CRIT	/* disable board lowlevel_init */
 
 /*
  * Commands configuration

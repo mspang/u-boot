@@ -36,9 +36,9 @@
  * e.g. bootp/tftp download of the kernel is a far more convenient
  * when testing new kernels on this target. However the ADS GCPlus Linux
  * boot ROM leaves the MMU enabled when it passes control to U-Boot. So
- * we use lowlevel_init (!CONFIG_SKIP_LOWLEVEL_INIT) to remedy that problem.
+ * we use lowlevel_init (!CONFIG_SKIP_CPU_INIT_CRIT) to remedy that problem.
  */
-#undef  CONFIG_SKIP_LOWLEVEL_INIT
+#undef  CONFIG_SKIP_CPU_INIT_CRIT
 
 /*
  * High Level Configuration Options

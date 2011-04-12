@@ -47,7 +47,7 @@
 #define CONFIG_REVISION_TAG		1
 #undef CONFIG_USE_IRQ				/* don't need IRQ/FIQ stuff */
 
-#define CONFIG_SKIP_LOWLEVEL_INIT
+#define CONFIG_SKIP_CPU_INIT_CRIT
 #define CONFIG_MISC_INIT_R		1	/* Call misc_init_r */
 
 #define CONFIG_ARCH_CPU_INIT

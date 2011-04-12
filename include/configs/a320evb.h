@@ -29,7 +29,7 @@
  */
 #undef CONFIG_USE_IRQ		/* we don't need IRQ/FIQ stuff */
 
-#undef CONFIG_SKIP_LOWLEVEL_INIT
+#undef CONFIG_SKIP_CPU_INIT_CRIT
 
 /*-----------------------------------------------------------------------
  * Timer

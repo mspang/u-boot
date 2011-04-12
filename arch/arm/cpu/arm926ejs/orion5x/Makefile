@@ -33,7 +33,7 @@ COBJS-y	= cpu.o
 COBJS-y	+= dram.o
 COBJS-y	+= timer.o
 
-ifndef CONFIG_SKIP_LOWLEVEL_INIT
+ifndef CONFIG_SKIP_CPU_INIT_CRIT
 SOBJS	:= lowlevel_init.o
 endif
 

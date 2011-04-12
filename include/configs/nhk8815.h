@@ -33,7 +33,7 @@
 #define CONFIG_NOMADIK_8815	/* cpu variant */
 #define CONFIG_NOMADIK_NHK8815	/* board variant */
 
-#define CONFIG_SKIP_LOWLEVEL_INIT /* we have already been loaded to RAM */
+#define CONFIG_SKIP_CPU_INIT_CRIT /* we have already been loaded to RAM */
 
 /* commands */
 #include <config_cmd_default.h>

@@ -27,7 +27,7 @@
 #define _CONFIG_CPUAT91_H
 
 #ifdef CONFIG_CPUAT91_RAM
-#define CONFIG_SKIP_LOWLEVEL_INIT	1
+#define CONFIG_SKIP_CPU_INIT_CRIT	1
 #else
 #define CONFIG_BOOTDELAY		1
 #endif
@@ -48,7 +48,7 @@
 #define CONFIG_SETUP_MEMORY_TAGS	1
 #define CONFIG_INITRD_TAG		1
 
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 #define CONFIG_SYS_USE_MAIN_OSCILLATOR	1
 /* flash */
 #define CONFIG_SYS_MC_PUIA_VAL	0x00000000
@@ -78,7 +78,7 @@
 #define CONFIG_SYS_SDRC_MR_VAL2	0x00000003 /* Load Mode Register */
 #define CONFIG_SYS_SDRC_MR_VAL3	0x00000000 /* Normal Mode */
 #define CONFIG_SYS_SDRC_TR_VAL	0x000002E0 /* Write refresh rate */
-#endif	/* CONFIG_SKIP_LOWLEVEL_INIT */
+#endif	/* CONFIG_SKIP_CPU_INIT_CRIT */
 
 /* define one of these to choose the DBGU, USART0 or USART1 as console */
 #define CONFIG_AT91RM9200_USART		1

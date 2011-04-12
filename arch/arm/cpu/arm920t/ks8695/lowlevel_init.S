@@ -26,7 +26,7 @@
 #include <version.h>
 #include <asm/arch/platform.h>
 
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 
 /*
  *************************************************************************
@@ -202,4 +202,4 @@ nobutton:
 	add	ip, ip, #0x02000000	/* this is a hack */
 	mov	pc, lr			/* all done, return */
 
-#endif /* CONFIG_SKIP_LOWLEVEL_INIT */
+#endif /* CONFIG_SKIP_CPU_INIT_CRIT */

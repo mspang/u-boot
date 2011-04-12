@@ -133,7 +133,7 @@
 #define CONFIG_ENV_SECT_SIZE	2048	/* Env sector Size */
 #define CONFIG_ENV_SIZE		(128 << 10)	/* 128 KiB */
 #endif
-#define CONFIG_SKIP_LOWLEVEL_INIT	/* U-Boot is loaded by a bootloader */
+#define CONFIG_SKIP_CPU_INIT_CRIT	/* U-Boot is loaded by a bootloader */
 #define CONFIG_SYS_NAND_BASE		0x02000000
 #define CONFIG_SYS_NAND_USE_FLASH_BBT
 #define CONFIG_SYS_NAND_HW_ECC
@@ -141,9 +141,9 @@
 #define CONFIG_ENV_OFFSET		0x0	/* Block 0--not used by bootcode */
 #elif defined(CONFIG_SYS_USE_NOR)
 #ifdef CONFIG_NOR_UART_BOOT
-#define CONFIG_SKIP_LOWLEVEL_INIT	/* U-Boot is loaded by a bootloader */
+#define CONFIG_SKIP_CPU_INIT_CRIT	/* U-Boot is loaded by a bootloader */
 #else
-#undef CONFIG_SKIP_LOWLEVEL_INIT
+#undef CONFIG_SKIP_CPU_INIT_CRIT
 #endif
 #define CONFIG_ENV_IS_IN_FLASH
 #undef CONFIG_SYS_NO_FLASH

@@ -46,7 +46,7 @@
 #undef CONFIG_BOOTCOUNT_LIMIT
 
 #define CONFIG_MD5	/* get_random_hex on krikwood needs MD5 support */
-#define CONFIG_SKIP_LOWLEVEL_INIT	/* disable board lowlevel_init */
+#define CONFIG_SKIP_CPU_INIT_CRIT	/* disable board lowlevel_init */
 #define CONFIG_KIRKWOOD_EGIGA_INIT	/* Enable GbePort0/1 for kernel */
 #undef  CONFIG_KIRKWOOD_PCIE_INIT	/* Disable PCIE Port0 for kernel */
 #define CONFIG_KIRKWOOD_RGMII_PAD_1V8	/* Set RGMII Pad voltage to 1.8V */

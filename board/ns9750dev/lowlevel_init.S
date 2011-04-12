@@ -34,7 +34,7 @@
 #include <version.h>
 
 #if defined(CONFIG_NS9750DEV)
-# ifndef CONFIG_SKIP_LOWLEVEL_INIT
+# ifndef CONFIG_SKIP_CPU_INIT_CRIT
 #  include <./ns9750_sys.h>
 #  include <./ns9750_mem.h>
 # endif
@@ -74,7 +74,7 @@ _PHYS_FLASH:
 _CAS_LATENCY:
 	.word	0x00022000	@ for CAS2 latency
 
-#ifndef CONFIG_SKIP_LOWLEVEL_INIT
+#ifndef CONFIG_SKIP_CPU_INIT_CRIT
 .globl lowlevel_init
 lowlevel_init:
 
@@ -295,4 +295,4 @@ _AHB_MONITOR_START:
 		 NS9750_SYS_AHB_MON_BATC_GEN_IRQ)
 _AHB_MONITOR_END:
 
-#endif /* CONFIG_SKIP_LOWLEVEL_INIT */
+#endif /* CONFIG_SKIP_CPU_INIT_CRIT */

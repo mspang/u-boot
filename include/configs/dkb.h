@@ -36,7 +36,7 @@
 #define CONFIG_SHEEVA_88SV331xV5	1	/* CPU Core subversion */
 #define CONFIG_PANTHEON			1	/* SOC Family Name */
 #define CONFIG_MACH_TTC_DKB		1	/* Machine type */
-#define CONFIG_SKIP_LOWLEVEL_INIT	/* disable board lowlevel_init */
+#define CONFIG_SKIP_CPU_INIT_CRIT	/* disable board lowlevel_init */
 
 #define CONFIG_SYS_INIT_SP_ADDR		(CONFIG_SYS_TEXT_BASE - 0x00200000)
 #define CONFIG_NR_DRAM_BANKS_MAX	2

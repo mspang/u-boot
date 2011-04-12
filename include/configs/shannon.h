@@ -33,7 +33,7 @@
  * But U-Boot still relocates itself into RAM
  */
 #define CONFIG_INFERNO			/* we are using the inferno bootldr */
-#define CONFIG_SKIP_LOWLEVEL_INIT	1
+#define CONFIG_SKIP_CPU_INIT_CRIT	1
 
 /*
  * High Level Configuration Options

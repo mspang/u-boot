@@ -26,7 +26,7 @@
 #define CONFIG_SYS_USE_NAND
 #define CONFIG_SYS_NAND_SMALLPAGE
 
-#define CONFIG_SKIP_LOWLEVEL_INIT
+#define CONFIG_SKIP_CPU_INIT_CRIT
 
 /* SoC Configuration */
 #define CONFIG_ARM926EJS				/* arm926ejs CPU */
