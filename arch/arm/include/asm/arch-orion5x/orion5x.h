@@ -63,7 +63,7 @@
 #define MAX_MVGBE_DEVS	1
 #define MVGBE0_BASE	ORION5X_EGIGA_BASE
 
-#define CONFIG_MAX_RAM_BANK_SIZE		(64*1024*1024)
+#define CONFIG_MAX_RAM_BANK_SIZE		(128*1024*1024)
 
 /* include here SoC variants. 5181, 5281, 6183 should go here when
    adding support for them, and this comment should then be updated. */
